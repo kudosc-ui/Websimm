@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0e1013">
+<title>WebSim · Responsive Preview</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dark">
+<nav id="nav">
+  <div class="brand"><i></i><b>WebSim</b></div>
+  <button data-v="home" class="on"><span>⌂</span>Home</button>
+  <button data-v="projects"><span>▤</span>Projects</button>
+  <button data-v="devices"><span>▯</span>Devices</button>
+  <button data-v="preview"><span>◧</span>Preview</button>
+  <button data-v="tests" class="dt"><span>✓</span>Tests</button>
+  <button data-v="settings"><span>⚙</span>Settings</button>
+</nav>
+<main>
+  <section id="v-home" class="view on pad">
+    <header class="top"><div><h1>WebSim</h1><p class="mut">Responsive Preview</p></div><button class="ib" data-v="settings" aria-label="Settings">⚙</button></header>
+    <div id="drop" class="drop" tabindex="0" role="button">
+      <b>Import Project</b>
+      <span class="mut">ZIP · HTML · Folder</span>
+      <small class="mut">Drop files here or tap to browse</small>
+    </div>
+    <div class="row2"><button class="btn" id="pickFiles">Files or ZIP</button><button class="btn" id="pickDir">Folder</button></div>
+    <p class="priv">Your project files are processed locally in your browser.</p>
+    <h2>Recent Projects</h2>
+    <div id="recent" class="list"></div>
+  </section>
+
+  <section id="v-projects" class="view pad"><header class="top"><h1>Projects</h1></header><div id="plist" class="list"></div></section>
+
+  <section id="v-devices" class="view pad">
+    <header class="top"><h1>Devices</h1></header>
+    <input id="q" class="inp" type="search" placeholder="Search devices..." autocomplete="off">
+    <div id="cats" class="chips"></div>
+    <div id="dlist"></div>
+    <details class="card"><summary>Custom device</summary>
+      <div class="form"><label>Name<input id="cn" class="inp" value="My Phone"></label>
+      <label>Width<input id="cw" class="inp" type="number" value="390"></label>
+      <label>Height<input id="ch" class="inp" type="number" value="844"></label>
+      <label>DPR<input id="cd" class="inp" type="number" step="0.25" value="3"></label></div>
+      <button class="btn ac" id="cs">Save Device</button>
+    </details>
+    <p class="note">Devices are simulated viewport profiles, not pixel-perfect hardware emulation.</p>
+  </section>
+
+  <section id="v-preview" class="view">
+    <header class="tb">
+      <button class="ib" id="pvBack" aria-label="Back">←</button>
+      <div class="tt"><b id="pvName">Preview</b><small class="mut">Preview</small></div>
+      <button class="chip" id="pvDev"></button>
+      <div class="seg"><button data-o="p" aria-label="Portrait">↕ <em>Portrait</em></button><button data-o="l" aria-label="Landscape">↔ <em>Landscape</em></button></div>
+      <div class="zm"><button id="zo" aria-label="Zoom out">−</button><button id="zv">Fit</button><button id="zi" aria-label="Zoom in">+</button></div>
+      <button class="btn ac" id="pvChk">Responsive Check</button>
+      <button class="ib" id="pvMore" aria-label="More">⋮</button>
+    </header>
+    <div id="more" class="more">
+      <label class="tog"><input type="checkbox" id="frm"> Frame</label>
+      <button class="btn" id="shot">Screenshot</button>
+      <button class="btn" id="fsb">⛶ Fullscreen</button>
+      <button class="btn" id="filesb">Files</button>
+      <button class="btn" id="cmpb">Compare</button>
+      <button class="btn" id="infob">Info</button>
+      <div class="vw"><span>Viewport</span><b id="vwv"></b><input type="range" id="vwr" min="280" max="1920" step="1"></div>
+      <div id="bps" class="chips"></div>
+    </div>
+    <div id="stage"></div>
+    <div id="foot" class="foot"></div>
+    <button class="btn ac" id="exitFs">Exit Fullscreen</button>
+  </section>
+
+  <section id="v-tests" class="view pad"><header class="top"><h1>Tests</h1><button class="btn ac" id="runT">Run Responsive Check</button></header><div id="tbox"><p class="mut">Import a project, then run the check.</p></div></section>
+
+  <section id="v-settings" class="view pad"><header class="top"><h1>Settings</h1></header><div id="sbox" class="list"></div></section>
+</main>
+<div id="sheet"><div class="sh"><header><b id="shT"></b><button class="ib" id="shX" aria-label="Close">✕</button></header><div id="shB"></div></div></div>
+<div id="toast"></div>
+<input type="file" id="fi" multiple hidden accept=".zip,.html,.htm,.css,.js,.json,.svg,.png,.jpg,.jpeg,.gif,.webp,.txt">
+<input type="file" id="fd" webkitdirectory hidden>
+<script src="app.js"></script>
+</body>
+</html>
